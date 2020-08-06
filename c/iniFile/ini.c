@@ -41,7 +41,7 @@ int ReadIniKeyString(char *title, char *key, char *buf, char *filename)
         if ('#' == sLine[0])              continue;
         wTmp = strchr(sLine, '=');
         if ((NULL != wTmp) && (1 == flag)) {
-            if (0 == strncmp(key, sLine, strlen(key))) { // 长度依文件读取的为准
+            if (0 == strncmp(key, sLine, strlen(key))) { // 长度以文件读取的为准
                 sLine[strlen(sLine) - 1] = '\0';
                 fclose(fp);
                 while(*(wTmp + 1) == ' '){
@@ -51,7 +51,7 @@ int ReadIniKeyString(char *title, char *key, char *buf, char *filename)
                 return 0;
             }
         } else {
-            if (0 == strncmp(sTitle, sLine, strlen(sTitle))) { // 长度依文件读取的为准
+            if (0 == strncmp(sTitle, sLine, strlen(sTitle))) { // 长度以文件读取的为准
                 flag = 1; // 找到标题位置
             }
         }
